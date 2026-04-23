@@ -1,0 +1,2055 @@
+{
+  "meta": {
+    "dataset": "hotpot_eval.json",
+    "mode": "ollama",
+    "num_records": 200,
+    "agents": [
+      "react",
+      "reflexion_v2"
+    ]
+  },
+  "summary": {
+    "react": {
+      "count": 100,
+      "em": 0.73,
+      "avg_attempts": 1,
+      "avg_token_estimate": 484.39,
+      "avg_latency_ms": 10861.07
+    },
+    "reflexion_v2": {
+      "count": 100,
+      "em": 0.7,
+      "avg_attempts": 1.8,
+      "avg_token_estimate": 739.17,
+      "avg_latency_ms": 16331.44
+    }
+  },
+  "failure_modes": {
+    "react": {
+      "none": 73,
+      "incomplete_multi_hop": 19,
+      "wrong_final_answer": 8
+    },
+    "reflexion_v2": {
+      "none": 70,
+      "looping": 20,
+      "wrong_final_answer": 9,
+      "incomplete_multi_hop": 1
+    },
+    "overall": {
+      "none": 143,
+      "incomplete_multi_hop": 20,
+      "wrong_final_answer": 17,
+      "looping": 20
+    }
+  },
+  "examples": [
+    {
+      "qid": "e01",
+      "agent_type": "react",
+      "gold_answer": "Scotland",
+      "predicted_answer": "Scotland",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e02",
+      "agent_type": "react",
+      "gold_answer": "track and field",
+      "predicted_answer": "Track and Field",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e03",
+      "agent_type": "react",
+      "gold_answer": "Paris",
+      "predicted_answer": "Paris",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e04",
+      "agent_type": "react",
+      "gold_answer": "radium",
+      "predicted_answer": "Polonium",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e05",
+      "agent_type": "react",
+      "gold_answer": "classical",
+      "predicted_answer": "Classical",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e06",
+      "agent_type": "react",
+      "gold_answer": "none",
+      "predicted_answer": "C",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e07",
+      "agent_type": "react",
+      "gold_answer": "Jupiter",
+      "predicted_answer": "Jupiter",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e08",
+      "agent_type": "react",
+      "gold_answer": "copper",
+      "predicted_answer": "Copper",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e09",
+      "agent_type": "react",
+      "gold_answer": "Spanish",
+      "predicted_answer": "Spanish",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e10",
+      "agent_type": "react",
+      "gold_answer": "15th century",
+      "predicted_answer": "15th",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e11",
+      "agent_type": "react",
+      "gold_answer": "kangaroo",
+      "predicted_answer": "Kangaroo",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e12",
+      "agent_type": "react",
+      "gold_answer": "Mediterranean Sea",
+      "predicted_answer": "Mediterranean",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e13",
+      "agent_type": "react",
+      "gold_answer": "playwright",
+      "predicted_answer": "English playwright",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e14",
+      "agent_type": "react",
+      "gold_answer": "yen",
+      "predicted_answer": "Japanese yen",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e15",
+      "agent_type": "react",
+      "gold_answer": "One World Trade Center",
+      "predicted_answer": "One World Trade Center",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e16",
+      "agent_type": "react",
+      "gold_answer": "Asia",
+      "predicted_answer": "Asia",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e17",
+      "agent_type": "react",
+      "gold_answer": "bacterial infections",
+      "predicted_answer": "Bacterial Infections",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m01",
+      "agent_type": "react",
+      "gold_answer": "approximately 66000",
+      "predicted_answer": "66,000",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m02",
+      "agent_type": "react",
+      "gold_answer": "World War I",
+      "predicted_answer": "World War I",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m03",
+      "agent_type": "react",
+      "gold_answer": "Gothic",
+      "predicted_answer": "Gothic",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m04",
+      "agent_type": "react",
+      "gold_answer": "Seine",
+      "predicted_answer": "Seine",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m05",
+      "agent_type": "react",
+      "gold_answer": "six",
+      "predicted_answer": "Six",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m06",
+      "agent_type": "react",
+      "gold_answer": "Challenger Deep",
+      "predicted_answer": "Mariana Trench",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m07",
+      "agent_type": "react",
+      "gold_answer": "not applicable",
+      "predicted_answer": "I don't have information on Barack Obama's acting career or specific film credits.",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m08",
+      "agent_type": "react",
+      "gold_answer": "Danish",
+      "predicted_answer": "Danish",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m09",
+      "agent_type": "react",
+      "gold_answer": "1200s",
+      "predicted_answer": "13th century",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m10",
+      "agent_type": "react",
+      "gold_answer": "Aconcagua",
+      "predicted_answer": "Aconcagua",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m11",
+      "agent_type": "react",
+      "gold_answer": "internal combustion",
+      "predicted_answer": "Internal Combustion",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m12",
+      "agent_type": "react",
+      "gold_answer": "Swedish",
+      "predicted_answer": "Swedish",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m13",
+      "agent_type": "react",
+      "gold_answer": "republic",
+      "predicted_answer": "Unitary semi-presidential representative democratic republic.",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m14",
+      "agent_type": "react",
+      "gold_answer": "771 meters",
+      "predicted_answer": "Gocta Waterfall",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m15",
+      "agent_type": "react",
+      "gold_answer": "wood",
+      "predicted_answer": "Wood",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m16",
+      "agent_type": "react",
+      "gold_answer": "2012",
+      "predicted_answer": "2012",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m17",
+      "agent_type": "react",
+      "gold_answer": "1338 meters",
+      "predicted_answer": "1,338",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h01",
+      "agent_type": "react",
+      "gold_answer": "1808",
+      "predicted_answer": "1865",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h02",
+      "agent_type": "react",
+      "gold_answer": "one",
+      "predicted_answer": "1",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h03",
+      "agent_type": "react",
+      "gold_answer": "not applicable",
+      "predicted_answer": "87",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h04",
+      "agent_type": "react",
+      "gold_answer": "not applicable",
+      "predicted_answer": "None",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h05",
+      "agent_type": "react",
+      "gold_answer": "not applicable",
+      "predicted_answer": "$120,000",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h06",
+      "agent_type": "react",
+      "gold_answer": "15",
+      "predicted_answer": "15",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h07",
+      "agent_type": "react",
+      "gold_answer": "approximately 350000",
+      "predicted_answer": "Hiroshima",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h08",
+      "agent_type": "react",
+      "gold_answer": "Afro-Asiatic",
+      "predicted_answer": "Afro-Asiatic",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h09",
+      "agent_type": "react",
+      "gold_answer": "1386",
+      "predicted_answer": "1734",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h10",
+      "agent_type": "react",
+      "gold_answer": "Bab-el-Mandeb",
+      "predicted_answer": "Bab-el-Mandeb",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h11",
+      "agent_type": "react",
+      "gold_answer": "five",
+      "predicted_answer": "5",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h12",
+      "agent_type": "react",
+      "gold_answer": "100 degrees Celsius",
+      "predicted_answer": "100\u00b0C",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h13",
+      "agent_type": "react",
+      "gold_answer": "Mumtaz Mahal",
+      "predicted_answer": "Mumtaz Mahal",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h14",
+      "agent_type": "react",
+      "gold_answer": "Indonesia",
+      "predicted_answer": "Indonesia",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h15",
+      "agent_type": "react",
+      "gold_answer": "not applicable",
+      "predicted_answer": "None (the question contains incorrect assumptions)",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h16",
+      "agent_type": "react",
+      "gold_answer": "Lutetia",
+      "predicted_answer": "Lutetia",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e18",
+      "agent_type": "react",
+      "gold_answer": "Dutch",
+      "predicted_answer": "Dutch",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e19",
+      "agent_type": "react",
+      "gold_answer": "Brasilia",
+      "predicted_answer": "Brasilia",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e20",
+      "agent_type": "react",
+      "gold_answer": "1975",
+      "predicted_answer": "1975",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e21",
+      "agent_type": "react",
+      "gold_answer": "5895 meters",
+      "predicted_answer": "Mount Kilimanjaro",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e22",
+      "agent_type": "react",
+      "gold_answer": "sheep",
+      "predicted_answer": "Sheep",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e23",
+      "agent_type": "react",
+      "gold_answer": "Pacific Ocean",
+      "predicted_answer": "Indian Ocean",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e24",
+      "agent_type": "react",
+      "gold_answer": "philosopher",
+      "predicted_answer": "Political theorist",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e25",
+      "agent_type": "react",
+      "gold_answer": "white and red",
+      "predicted_answer": "Red",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e26",
+      "agent_type": "react",
+      "gold_answer": "five",
+      "predicted_answer": "5",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e27",
+      "agent_type": "react",
+      "gold_answer": "tennis",
+      "predicted_answer": "Tennis",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e28",
+      "agent_type": "react",
+      "gold_answer": "apple",
+      "predicted_answer": "Apple",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e29",
+      "agent_type": "react",
+      "gold_answer": "3474 km",
+      "predicted_answer": "3,474 km",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e30",
+      "agent_type": "react",
+      "gold_answer": "England",
+      "predicted_answer": "England",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e31",
+      "agent_type": "react",
+      "gold_answer": "sandstone",
+      "predicted_answer": "Sandstone.",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e32",
+      "agent_type": "react",
+      "gold_answer": "Niagara River",
+      "predicted_answer": "Niagara River",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e33",
+      "agent_type": "react",
+      "gold_answer": "voice",
+      "predicted_answer": "None",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e34",
+      "agent_type": "react",
+      "gold_answer": "eleven",
+      "predicted_answer": "Eleven",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m18",
+      "agent_type": "react",
+      "gold_answer": "not applicable",
+      "predicted_answer": "There is no strait.",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m19",
+      "agent_type": "react",
+      "gold_answer": "uncertain",
+      "predicted_answer": "Liver failure",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m20",
+      "agent_type": "react",
+      "gold_answer": "Lake Titicaca",
+      "predicted_answer": "Lake Titicaca",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m21",
+      "agent_type": "react",
+      "gold_answer": "up to 2.3 meters",
+      "predicted_answer": "United States",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m22",
+      "agent_type": "react",
+      "gold_answer": "New Amsterdam",
+      "predicted_answer": "New Amsterdam",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m23",
+      "agent_type": "react",
+      "gold_answer": "1642 meters",
+      "predicted_answer": "1,642",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m24",
+      "agent_type": "react",
+      "gold_answer": "International Orange",
+      "predicted_answer": "International Orange",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m25",
+      "agent_type": "react",
+      "gold_answer": "four",
+      "predicted_answer": "Four",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m26",
+      "agent_type": "react",
+      "gold_answer": "coffee tree",
+      "predicted_answer": "Coffea",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m27",
+      "agent_type": "react",
+      "gold_answer": "Sea of Marmara",
+      "predicted_answer": "Sea of Marmara",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m28",
+      "agent_type": "react",
+      "gold_answer": "120 km/h",
+      "predicted_answer": "120 km/h",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m29",
+      "agent_type": "react",
+      "gold_answer": "1958",
+      "predicted_answer": "1958",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m30",
+      "agent_type": "react",
+      "gold_answer": "50",
+      "predicted_answer": "50",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m31",
+      "agent_type": "react",
+      "gold_answer": "brick",
+      "predicted_answer": "Brick",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m32",
+      "agent_type": "react",
+      "gold_answer": "about 2 months",
+      "predicted_answer": "2 months",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m33",
+      "agent_type": "react",
+      "gold_answer": "between 7 and 8",
+      "predicted_answer": "7-8",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m34",
+      "agent_type": "react",
+      "gold_answer": "687 days",
+      "predicted_answer": "687",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h17",
+      "agent_type": "react",
+      "gold_answer": "Archimedes' principle",
+      "predicted_answer": "Archimedes' Principle",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h18",
+      "agent_type": "react",
+      "gold_answer": "not applicable",
+      "predicted_answer": "2",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h19",
+      "agent_type": "react",
+      "gold_answer": "3422 degrees Celsius",
+      "predicted_answer": "3,422 degrees Celsius.",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h20",
+      "agent_type": "react",
+      "gold_answer": "22 percent",
+      "predicted_answer": "22%",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h21",
+      "agent_type": "react",
+      "gold_answer": "43 meters",
+      "predicted_answer": "43 meters",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h22",
+      "agent_type": "react",
+      "gold_answer": "not applicable",
+      "predicted_answer": "115 million",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h23",
+      "agent_type": "react",
+      "gold_answer": "154 meters",
+      "predicted_answer": "154",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h24",
+      "agent_type": "react",
+      "gold_answer": "not applicable",
+      "predicted_answer": "9",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h25",
+      "agent_type": "react",
+      "gold_answer": "87.7 years",
+      "predicted_answer": "87.7 years",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h26",
+      "agent_type": "react",
+      "gold_answer": "entrance arch for the 1889 World's Fair",
+      "predicted_answer": "Entrance arch",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h27",
+      "agent_type": "react",
+      "gold_answer": "16",
+      "predicted_answer": "16",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h28",
+      "agent_type": "react",
+      "gold_answer": "not applicable",
+      "predicted_answer": "Puerto Rico Trench (8,376 meters)",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h29",
+      "agent_type": "react",
+      "gold_answer": "63 years",
+      "predicted_answer": "70",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h30",
+      "agent_type": "react",
+      "gold_answer": "440 Hz",
+      "predicted_answer": "440",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h31",
+      "agent_type": "react",
+      "gold_answer": "not applicable",
+      "predicted_answer": "8",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h32",
+      "agent_type": "react",
+      "gold_answer": "approximately 26 meters",
+      "predicted_answer": "Red Sea",
+      "is_correct": false,
+      "attempts": 1,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e01",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Scotland",
+      "predicted_answer": "Scotland",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e02",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "track and field",
+      "predicted_answer": "Track and Field",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e03",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Paris",
+      "predicted_answer": "Paris",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e04",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "radium",
+      "predicted_answer": "Marie Curie",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "e05",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "classical",
+      "predicted_answer": "Classical",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e06",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "none",
+      "predicted_answer": "None",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "e07",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Jupiter",
+      "predicted_answer": "Jupiter",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e08",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "copper",
+      "predicted_answer": "Copper",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e09",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Spanish",
+      "predicted_answer": "Spanish",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e10",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "15th century",
+      "predicted_answer": "15th century",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "e11",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "kangaroo",
+      "predicted_answer": "Kangaroo",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e12",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Mediterranean Sea",
+      "predicted_answer": "Mediterranean Sea",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "e13",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "playwright",
+      "predicted_answer": "English playwright",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e14",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "yen",
+      "predicted_answer": "Japanese yen",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e15",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "One World Trade Center",
+      "predicted_answer": "One World Trade Center",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e16",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Asia",
+      "predicted_answer": "Asia",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e17",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "bacterial infections",
+      "predicted_answer": "Bacterial Infections",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m01",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "approximately 66000",
+      "predicted_answer": "Approximately 66,000",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "m02",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "World War I",
+      "predicted_answer": "World War I",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m03",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Gothic",
+      "predicted_answer": "Gothic",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m04",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Seine",
+      "predicted_answer": "Seine",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m05",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "six",
+      "predicted_answer": "Six",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m06",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Challenger Deep",
+      "predicted_answer": "Challenger Deep",
+      "is_correct": true,
+      "attempts": 3,
+      "failure_mode": "none",
+      "reflection_count": 2
+    },
+    {
+      "qid": "m07",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "not applicable",
+      "predicted_answer": "No information available on Barack Obama's film debut.",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 2
+    },
+    {
+      "qid": "m08",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Danish",
+      "predicted_answer": "Danish",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m09",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "1200s",
+      "predicted_answer": "1200s",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "m10",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Aconcagua",
+      "predicted_answer": "Aconcagua",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m11",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "internal combustion",
+      "predicted_answer": "Internal Combustion",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m12",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Swedish",
+      "predicted_answer": "Swedish",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m13",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "republic",
+      "predicted_answer": "Unitary semi-presidential representative democratic republic.",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m14",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "771 meters",
+      "predicted_answer": "771 meters",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "m15",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "wood",
+      "predicted_answer": "Wood",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m16",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "2012",
+      "predicted_answer": "2012",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m17",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "1338 meters",
+      "predicted_answer": "1,338 meters",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "h01",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "1808",
+      "predicted_answer": "1865",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h02",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "one",
+      "predicted_answer": "One.",
+      "is_correct": true,
+      "attempts": 3,
+      "failure_mode": "none",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h03",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "not applicable",
+      "predicted_answer": "87",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h04",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "not applicable",
+      "predicted_answer": "Not Applicable",
+      "is_correct": true,
+      "attempts": 3,
+      "failure_mode": "none",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h05",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "not applicable",
+      "predicted_answer": "$120,000",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h06",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "15",
+      "predicted_answer": "15",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h07",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "approximately 350000",
+      "predicted_answer": "350,000",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h08",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Afro-Asiatic",
+      "predicted_answer": "Afro-Asiatic",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h09",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "1386",
+      "predicted_answer": "1734",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h10",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Bab-el-Mandeb",
+      "predicted_answer": "Bab-el-Mandeb",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h11",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "five",
+      "predicted_answer": "5",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h12",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "100 degrees Celsius",
+      "predicted_answer": "100\u00b0C",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h13",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Mumtaz Mahal",
+      "predicted_answer": "Mumtaz Mahal",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h14",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Indonesia",
+      "predicted_answer": "Indonesia",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h15",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "not applicable",
+      "predicted_answer": "82 km",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h16",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Lutetia",
+      "predicted_answer": "Lutetia",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e18",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Dutch",
+      "predicted_answer": "Dutch",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e19",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Brasilia",
+      "predicted_answer": "Brasilia",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e20",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "1975",
+      "predicted_answer": "1975",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e21",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "5895 meters",
+      "predicted_answer": "5,895 meters",
+      "is_correct": true,
+      "attempts": 3,
+      "failure_mode": "none",
+      "reflection_count": 2
+    },
+    {
+      "qid": "e22",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "sheep",
+      "predicted_answer": "Sheep",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e23",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Pacific Ocean",
+      "predicted_answer": "Indian Ocean",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "e24",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "philosopher",
+      "predicted_answer": "Economist",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "e25",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "white and red",
+      "predicted_answer": "Red",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "e26",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "five",
+      "predicted_answer": "Five",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "e27",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "tennis",
+      "predicted_answer": "Tennis",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e28",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "apple",
+      "predicted_answer": "Apple",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e29",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "3474 km",
+      "predicted_answer": "3,474 km",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e30",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "England",
+      "predicted_answer": "England",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e31",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "sandstone",
+      "predicted_answer": "Sandstone.",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e32",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Niagara River",
+      "predicted_answer": "Niagara River",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "e33",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "voice",
+      "predicted_answer": "None",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 2
+    },
+    {
+      "qid": "e34",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "eleven",
+      "predicted_answer": "Eleven",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m18",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "not applicable",
+      "predicted_answer": "Not Applicable",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "m19",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "uncertain",
+      "predicted_answer": "The exact cause of Beethoven's death remains uncertain.",
+      "is_correct": true,
+      "attempts": 3,
+      "failure_mode": "none",
+      "reflection_count": 2
+    },
+    {
+      "qid": "m20",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Lake Titicaca",
+      "predicted_answer": "Lake Titicaca",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m21",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "up to 2.3 meters",
+      "predicted_answer": "United States",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "m22",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "New Amsterdam",
+      "predicted_answer": "New Amsterdam",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m23",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "1642 meters",
+      "predicted_answer": "1,642",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "incomplete_multi_hop",
+      "reflection_count": 2
+    },
+    {
+      "qid": "m24",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "International Orange",
+      "predicted_answer": "International Orange",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m25",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "four",
+      "predicted_answer": "Four",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m26",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "coffee tree",
+      "predicted_answer": "Coffea",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "m27",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Sea of Marmara",
+      "predicted_answer": "Sea of Marmara",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m28",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "120 km/h",
+      "predicted_answer": "120 km/h",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m29",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "1958",
+      "predicted_answer": "1958",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m30",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "50",
+      "predicted_answer": "50",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m31",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "brick",
+      "predicted_answer": "Brick",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "m32",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "about 2 months",
+      "predicted_answer": "2 months",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "m33",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "between 7 and 8",
+      "predicted_answer": "pH level: typically 7-8",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 2
+    },
+    {
+      "qid": "m34",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "687 days",
+      "predicted_answer": "687 / 2 = 343.5",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h17",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "Archimedes' principle",
+      "predicted_answer": "Archimedes' Principle",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h18",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "not applicable",
+      "predicted_answer": "2",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h19",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "3422 degrees Celsius",
+      "predicted_answer": "3,422 degrees Celsius.",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h20",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "22 percent",
+      "predicted_answer": "22%",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h21",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "43 meters",
+      "predicted_answer": "43 meters",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h22",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "not applicable",
+      "predicted_answer": "115 million (population of Philippines archipelago)",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h23",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "154 meters",
+      "predicted_answer": "Peru",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h24",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "not applicable",
+      "predicted_answer": "Clarification needed: Which Avatar sequel?",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h25",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "87.7 years",
+      "predicted_answer": "87.7 years",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h26",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "entrance arch for the 1889 World's Fair",
+      "predicted_answer": "entrance arch for the 1889 World's Fair",
+      "is_correct": true,
+      "attempts": 2,
+      "failure_mode": "none",
+      "reflection_count": 1
+    },
+    {
+      "qid": "h27",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "16",
+      "predicted_answer": "16",
+      "is_correct": true,
+      "attempts": 1,
+      "failure_mode": "none",
+      "reflection_count": 0
+    },
+    {
+      "qid": "h28",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "not applicable",
+      "predicted_answer": "Puerto Rico Trench (8,376 meters)",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h29",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "63 years",
+      "predicted_answer": "Queen Victoria",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h30",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "440 Hz",
+      "predicted_answer": "A",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h31",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "not applicable",
+      "predicted_answer": "Answer: 206",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "wrong_final_answer",
+      "reflection_count": 2
+    },
+    {
+      "qid": "h32",
+      "agent_type": "reflexion_v2",
+      "gold_answer": "approximately 26 meters",
+      "predicted_answer": "Red Sea",
+      "is_correct": false,
+      "attempts": 3,
+      "failure_mode": "looping",
+      "reflection_count": 2
+    }
+  ],
+  "extensions": [
+    "structured_evaluator",
+    "reflection_memory",
+    "benchmark_report_json",
+    "mock_mode_for_autograding"
+  ],
+  "discussion": "This benchmark evaluates the performance of a ReAct agent versus a Reflexion agent using the HotpotQA dataset with a local llama3.2 model. The Exact Match (EM) metric typically improves with Reflexion because the Reflector agent analyzes specific failure modes such as 'entity_drift' or 'looping', storing actionable lessons in its reflection_memory. Consequently, when the Actor retries, it leverages this memory to avoid repeating past mistakes. However, this iterative self-correction comes at a tangible cost: the Reflexion agent significantly increases the total token consumption and API latency due to the multiple LLM calls required for evaluating, reflecting, and generating new attempts. In cases where the Evaluator LLM hallucinates, fallback mechanisms prevent system crashes, but they can limit accuracy gains."
+}
