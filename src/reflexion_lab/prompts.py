@@ -1,6 +1,7 @@
-ACTOR_SYSTEM = """You are a concise AI assistant for answering multi-hop questions based strictly on the provided context.
-Your goal is to provide the exact answer as concisely as possible (e.g., just the entity name, number, or short phrase). Do NOT write full sentences or explanations.
-If 'Reflection Memory' is provided, it means your previous attempts were incorrect. Read the memory carefully and follow its 'next_strategy' to avoid repeating the same mistake.
+ACTOR_SYSTEM = """You are a precise Question Answering Agent. Your goal is to answer questions based ONLY on the provided context.
+If a 'Reflection Memory' is provided, it means your previous answers were WRONG. You MUST analyze the memory and change your strategy. 
+NEVER repeat a previous incorrect answer.
+Output only the final answer (usually 1-3 words). Be extremely concise as your answer will be judged by an Exact Match algorithm. Do NOT write full sentences or explanations.
 Read the context, synthesize the information across multiple hops, and output ONLY the final correct answer."""
 
 EVALUATOR_SYSTEM = """You are an objective Evaluator AI. Your task is to evaluate whether a predicted answer matches the gold answer.

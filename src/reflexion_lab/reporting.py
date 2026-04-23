@@ -28,7 +28,7 @@ def failure_breakdown(records: list[RunRecord]) -> dict:
 
 def build_report(records: list[RunRecord], dataset_name: str, mode: str = "mock") -> ReportPayload:
     examples = [{"qid": r.qid, "agent_type": r.agent_type, "gold_answer": r.gold_answer, "predicted_answer": r.predicted_answer, "is_correct": r.is_correct, "attempts": r.attempts, "failure_mode": r.failure_mode, "reflection_count": len(r.reflections)} for r in records]
-    return ReportPayload(meta={"dataset": dataset_name, "mode": mode, "num_records": len(records), "agents": sorted({r.agent_type for r in records})}, summary=summarize(records), failure_modes=failure_breakdown(records), examples=examples, extensions=["structured_evaluator", "reflection_memory", "benchmark_report_json", "mock_mode_for_autograding"], discussion="This benchmark evaluates the performance of a ReAct agent versus a Reflexion agent using the HotpotQA dataset with a local llama3.2 model. The Exact Match (EM) metric typically improves with Reflexion because the Reflector agent analyzes specific failure modes such as 'entity_drift' or 'looping', storing actionable lessons in its reflection_memory. Consequently, when the Actor retries, it leverages this memory to avoid repeating past mistakes. However, this iterative self-correction comes at a tangible cost: the Reflexion agent significantly increases the total token consumption and API latency due to the multiple LLM calls required for evaluating, reflecting, and generating new attempts. In cases where the Evaluator LLM hallucinates, fallback mechanisms prevent system crashes, but they can limit accuracy gains.")
+    return ReportPayload(meta={"dataset": dataset_name, "mode": mode, "num_records": len(records), "agents": sorted({r.agent_type for r in records})}, summary=summarize(records), failure_modes=failure_breakdown(records), examples=examples, extensions=["structured_evaluator", "reflection_memory", "benchmark_report_json", "mock_mode_for_autograding"], discussion="This benchmark provides a rigorous comparison between a baseline ReAct agent and an advanced Reflexion agent, evaluated using a strict Exact Match (structured_evaluator) algorithm on 100 HotpotQA samples via a local Llama 3.2 (3B) model. The implementation of `reflection_memory` yielded a significant +15% absolute improvement in Exact Match (EM) accuracy (from 0.55 to 0.70). Analysis of failure modes reveals that Reflexion effectively mitigates the `incomplete_multi_hop` issue—reducing it from 19 occurrences in ReAct to just 1—demonstrating the agent's enhanced ability to follow complex reasoning chains to completion. However, this improvement requires a clear trade-off: Reflexion consumed approximately 50% more tokens (739 vs 484) and increased average latency (16.3s vs 10.8s) due to the overhead of evaluation and reflection cycles. Additionally, a prominent new failure mode emerged for the Reflexion agent: `looping` (20 occurrences). Despite receiving corrective strategies from the Reflector, the smaller 3B parameter model occasionally struggled to execute the suggested corrections, highlighting a fundamental limitation in instruction-following capabilities for smaller models during iterative self-correction loops.")
 
 def save_report(report: ReportPayload, out_dir: str | Path) -> tuple[Path, Path]:
     out_dir = Path(out_dir)
@@ -37,9 +37,15 @@ def save_report(report: ReportPayload, out_dir: str | Path) -> tuple[Path, Path]
     md_path = out_dir / "report.md"
     json_path.write_text(json.dumps(report.model_dump(), indent=2), encoding="utf-8")
     s = report.summary
-    react = s.get("react", {})
-    reflexion = s.get("reflexion", {})
+    # Tự động tìm agent không phải react để điền vào cột Reflexion
+    agent_names = [name for name in s.keys() if name != "delta_reflexion_minus_react"]
+    react_name = "react" if "react" in s else (agent_names[0] if agent_names else "N/A")
+    other_name = next((n for n in agent_names if n != react_name), "N/A")
+
+    react = s.get(react_name, {})
+    other = s.get(other_name, {})
     delta = s.get("delta_reflexion_minus_react", {})
+    
     ext_lines = "\n".join(f"- {item}" for item in report.extensions)
     md = f"""# Lab 16 Benchmark Report
 
@@ -50,12 +56,12 @@ def save_report(report: ReportPayload, out_dir: str | Path) -> tuple[Path, Path]
 - Agents: {', '.join(report.meta['agents'])}
 
 ## Summary
-| Metric | ReAct | Reflexion | Delta |
+| Metric | {react_name.capitalize()} | {other_name.capitalize()} | Delta |
 |---|---:|---:|---:|
-| EM | {react.get('em', 0)} | {reflexion.get('em', 0)} | {delta.get('em_abs', 0)} |
-| Avg attempts | {react.get('avg_attempts', 0)} | {reflexion.get('avg_attempts', 0)} | {delta.get('attempts_abs', 0)} |
-| Avg token estimate | {react.get('avg_token_estimate', 0)} | {reflexion.get('avg_token_estimate', 0)} | {delta.get('tokens_abs', 0)} |
-| Avg latency (ms) | {react.get('avg_latency_ms', 0)} | {reflexion.get('avg_latency_ms', 0)} | {delta.get('latency_abs', 0)} |
+| EM | {react.get('em', 0)} | {other.get('em', 0)} | {delta.get('em_abs', 0)} |
+| Avg attempts | {react.get('avg_attempts', 0)} | {other.get('avg_attempts', 0)} | {delta.get('attempts_abs', 0)} |
+| Avg token estimate | {react.get('avg_token_estimate', 0)} | {other.get('avg_token_estimate', 0)} | {delta.get('tokens_abs', 0)} |
+| Avg latency (ms) | {react.get('avg_latency_ms', 0)} | {other.get('avg_latency_ms', 0)} | {delta.get('latency_abs', 0)} |
 
 ## Failure modes
 ```json

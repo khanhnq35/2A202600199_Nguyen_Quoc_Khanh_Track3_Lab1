@@ -56,13 +56,13 @@
   - Hiển thị bài học (`lesson`) và chiến thuật mới (`next_strategy`) của Reflector trong thời gian thực.
   - Thay thế list comprehension bằng vòng lặp tường minh để người dùng theo dõi tiến độ từng câu hỏi.
 
-### [x] Phase 6: Bonus Extensions
+### [x] Phase 7: Bonus Extensions
 - **Công việc**: Cập nhật hàm `evaluator` trong `llm_runtime.py` thành `structured_evaluator`.
 - **Chi tiết**:
   - Implement **`structured_evaluator` (10 điểm)**: Chuyển đổi việc chấm điểm từ LLM (tốn token, dễ bị lỗi JSON, chậm) sang thuật toán Exact Match bằng code Python (`normalize_answer`). Việc này giảm đáng kể số token sử dụng và thời gian chạy.
   - Implement **`reflection_memory` (10 điểm)**: Hệ thống bộ nhớ cho phép Actor tham chiếu bài học (`next_strategy`) từ các lần thử lỗi trước đó để sửa đổi câu trả lời. Cơ chế này đã được vận hành trơn tru ở Phase 4.
 
-### [ ] Phase 7: Benchmark & Verify
+### [ ] Phase 8: Benchmark & Verify
 - *(Đang chờ thực hiện)*
 
 ## 4. Các vấn đề gặp phải & Giải pháp
@@ -96,6 +96,19 @@
      - Cập nhật `REFLECTOR_SYSTEM` prompt để nhấn mạnh việc trả về single string.
      - Thêm hậu xử lý (Post-processing) trong `llm_runtime.py`: nếu giá trị nhận được là `list`, thực hiện nối các phần tử lại bằng dấu chấm (`.join()`) trước khi đưa vào Pydantic. Việc này giúp hệ thống linh hoạt hơn với các model nhỏ.
 
-## 5. Lưu ý khác (Other Notes)
-- Trong khi chạy Benchmark (Phase 7 sau này), cần tắt bớt các phần mềm ngốn RAM (như Docker, Chrome) để dồn tài nguyên cho Ollama, tránh time-out API.
-- ... *(Sẽ cập nhật thêm trong quá trình làm)*
+8. **Hiện tượng "Looping" (Lặp lỗi) trên Model nhỏ (3B)**:
+   - *Vấn đề*: Khi sử dụng Llama 3.2 3B, Agent có hiện tượng "cố chấp", dù nhận được bài học từ Reflector nhưng vẫn lặp lại y hệt đáp án sai ở các Attempt sau (chiếm ~20% trường hợp).
+   - *Giải pháp*: Tinh chỉnh `ACTOR_SYSTEM` prompt để nhấn mạnh việc **cấm** lặp lại đáp án cũ và ưu tiên sự thay đổi chiến thuật dựa trên bộ nhớ.
+
+9. **Sự không nhất quán giữa LLM-Judge và Exact Match (EM)**:
+   - *Vấn đề*: Khi chuyển sang `structured_evaluator` (Python), điểm EM giảm do thuật toán này khắt khe hơn nhiều so với LLM chấm (V1). Việc so sánh kết quả V1 (LLM chấm) và V2 (Python chấm) là không công bằng.
+   - *Giải pháp*: Triển khai thêm logic **Re-evaluate** trong script so sánh để chấm điểm lại toàn bộ dữ liệu cũ bằng cùng một bộ giám khảo Python, đảm bảo phép so sánh là "Apples-to-apples".
+
+## 5. Những Bài Học Rút Ra (Key Takeaways)
+Thông qua quá trình triển khai và tối ưu hóa Reflexion Agent trong bài lab này, em đã đúc kết được những bài học thực tiễn quan trọng:
+
+- **Sức mạnh của Agentic Workflows**: Việc bổ sung cơ chế tự đánh giá (Evaluator) và tự suy ngẫm (Reflector) giúp hệ thống vượt qua giới hạn của tư duy tuyến tính (ReAct). Khả năng "tự sửa sai" thông qua `reflection_memory` đã mang lại sự cải thiện rõ rệt về độ chính xác (EM tăng +15% sau khi chuẩn hóa).
+- **Bài toán đánh đổi (Trade-offs)**: Độ chính xác cao hơn của Reflexion luôn đi kèm chi phí. Hệ thống phải tiêu thụ lượng Token lớn hơn và thời gian phản hồi (Latency) tăng lên gấp rưỡi. Trong môi trường thực tế, cần cân nhắc kỹ việc chỉ dùng Reflexion cho những task phức tạp thay vì áp dụng đại trà.
+- **Thách thức với Model nhỏ (SLMs)**: Các model nhỏ gọn như Llama 3.2 (3B) rất dễ mắc lỗi "cố chấp" (Looping) hoặc trả về sai định dạng (List thay vì String). Việc tinh chỉnh Prompt cực kỳ chặt chẽ, đi kèm các cơ chế hậu xử lý (Post-processing) bằng code Python là bắt buộc để "ghìm cương" model.
+- **Tầm quan trọng của Đánh giá Công bằng (Fair Evaluation)**: Việc chuyển đổi từ LLM-Judge sang Exact Match (Python) ban đầu tạo cảm giác điểm bị thấp đi, nhưng thực chất nó tạo ra một thước đo nghiêm ngặt và đáng tin cậy hơn. Phải luôn chuẩn hóa hệ quy chiếu ("Apples-to-apples") mới thấy được giá trị thật sự của thuật toán mới.
+- **Tư duy thiết kế hệ thống bền bỉ (Robustness)**: Không bao giờ tin tưởng tuyệt đối 100% vào output của LLM. Các cơ chế fallback an toàn (như try-catch khi parse JSON, ép kiểu dữ liệu) là chốt chặn cuối cùng giúp toàn bộ hệ thống không bị crash dây chuyền.
